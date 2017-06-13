@@ -5,11 +5,11 @@ import java.util.HashMap;
 public class Payment {
     private String paymentType;
     private String description;
-    private Person payer;
+    private String payer;
     private double cost;
-    private HashMap<Person, Double> debtors;
+    private HashMap<String, Double> debtors;
 
-    public Payment(String paymentType, String description, Person payer, double cost) {
+    public Payment(String paymentType, String description, String payer, double cost) {
         this.paymentType = paymentType;
         this.description = description;
         this.payer = payer;
@@ -17,7 +17,7 @@ public class Payment {
         debtors = new HashMap<>();
     }
 
-    public void addDebtor(Person p, double fraction) {
+    public void addDebtor(String p, double fraction) {
         debtors.put(p, fraction);
     }
 
@@ -29,7 +29,7 @@ public class Payment {
         return description;
     }
 
-    public Person getPayer() {
+    public String getPayer() {
         return payer;
     }
 
@@ -37,7 +37,7 @@ public class Payment {
         return cost;
     }
 
-    public double getDebt(Person p) {
+    public double getDebt(String p) {
         if (debtors.keySet().contains(p)) {
             return cost * (debtors.get(p));
         } else {
