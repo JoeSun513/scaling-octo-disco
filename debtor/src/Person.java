@@ -4,15 +4,11 @@ import java.util.ArrayList;
  */
 public class Person {
     private String name;
-    private ArrayList<Payment> debtList;
-    private ArrayList<Payment> creditList;
     private double debt;
     private double credit;
 
     public Person(String name) {
         this.name = name;
-        debtList = new ArrayList<>();
-        creditList = new ArrayList<>();
         debt = 0;
         credit = 0;
     }
@@ -29,13 +25,15 @@ public class Person {
         return credit;
     }
 
-    public void addDebt(Payment p) {
-        debtList.add(p);
-        debt += p.getDebt(name);
+    public double getDifference() {
+        return credit - debt;
     }
 
-    public void addCredit(Payment p) {
-        creditList.add(p);
-        credit += p.getTotalCost();
+    public void addDebt(double amount) {
+        debt += amount;
+    }
+
+    public void addCredit(double amount) {
+        credit += amount;
     }
 }
