@@ -45,7 +45,7 @@ public class Payment {
         return payer.getName();
     }
 
-    public double getTotalCost() {
+    public double getCost() {
         return cost;
     }
 }

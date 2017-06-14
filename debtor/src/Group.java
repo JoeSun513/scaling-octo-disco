@@ -6,13 +6,13 @@ import java.util.HashMap;
 public class Group {
     private int id;
     private String title;
-    private HashMap<String, Person> members;
+    private ArrayList<Person> members;
     private ArrayList<Payment> payments;
 
     public Group(int id, String title) {
         this.id = id;
         this.title = title;
-        members = new HashMap<>();
+        members = new ArrayList<>();
         payments = new ArrayList<>();
     }
 
@@ -26,7 +26,11 @@ public class Group {
 
     public void addMember(String name) {
         Person newMember = new Person(name);
-        members.put(name, newMember);
+        members.add(newMember);
+    }
+
+    public Person getMember(int position) {
+        return members.get(position);
     }
 
     public void addPayment(String paymentType, String description, Person payer, double cost,
@@ -36,21 +40,21 @@ public class Group {
         payments.add(newPayment);
     }
 
-    private double getDebt(String name) {
-        return members.get(name).getDebt();
+    private double getDebt(int position) {
+        return members.get(position).getDebt();
     }
 
-    private double getCredit(String name) {
-        return members.get(name).getCredit();
+    private double getCredit(int position) {
+        return members.get(position).getCredit();
     }
 
-    private double getDifference(String name) {
-        return members.get(name).getDifference();
+    private double getDifference(int position) {
+        return members.get(position).getDifference();
     }
 
     public HashMap<Person, Double> getDifferenceMap() {
         HashMap<Person, Double> differenceMap = new HashMap<>();
-        for (Person p : members.values()) {
+        for (Person p : members) {
             differenceMap.put(p, p.getDifference());
         }
         return differenceMap;
