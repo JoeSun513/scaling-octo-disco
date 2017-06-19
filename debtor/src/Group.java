@@ -49,7 +49,7 @@ public class Group {
 
     /**
      * Adds a new payment to the group
-     * @param paymentType the category the payment was for, ex. food, entertainment, rent
+     * @param paymentType the category the payment is for, ex. food, entertainment, rent
      * @param description the description of the payment
      * @param payer the Person object that corresponds to the person paying
      * @param cost the payment cost
