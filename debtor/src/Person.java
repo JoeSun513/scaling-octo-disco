@@ -47,4 +47,8 @@ public class Person {
     public void addCredit(double amount) {
         credit += amount;
     }
+
+    public boolean inDebt() {
+        return this.debt > this.credit;
+    }
 }
